@@ -10,10 +10,10 @@ const notes = require('./notes')
  */
 const generateScale = (note, rule) => {
     const ruleSplited = rule.split(' ')
-    let indexActualNote = notes.indexOf(note)
+    let indexActualNote = notes.indexOf(note.toUpperCase())
     const scale = []
 
-    scale.push(note)
+    scale.push(notes[indexActualNote])
 
     ruleSplited.forEach(interval => {
         indexActualNote += /T|t/.test(interval) ? 2 : 1
@@ -37,4 +37,13 @@ const getMajorScale = (note) => {
     return generateScale(note, 'T T S T T T S')
 }
 
-module.exports = { getMajorScale }
+/**
+ * Returns a minor scale from a passed note
+ * @param { String } note 
+ * @returns { Array<String> }
+ */
+const getMinorScale = (note) => {
+    return generateScale(note, 'T S T T S T T')
+}
+
+module.exports = { getMajorScale, getMinorScale }

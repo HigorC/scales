@@ -7,7 +7,12 @@ const scales = require('./scales')
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send(scales.getMajorScale('B'))
+    if (req.query.note) {
+        res.send({
+            major: scales.getMajorScale(req.query.note),
+            minor: scales.getMinorScale(req.query.note)
+        })
+    }
 })
 
 app.listen(port, () => {
