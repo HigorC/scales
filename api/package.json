@@ -1,0 +1,20 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Scales API",
+  "main": "init.js",
+  "scripts": {
+    "start": "nodemon init.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HigorC/scales.git"
+  },
+  "author": "Higor Chaves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HigorC/scales/issues"
+  },
+  "homepage": "https://github.com/HigorC/scales#readme"
+}
