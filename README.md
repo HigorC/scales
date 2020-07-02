@@ -1,0 +1,2 @@
+# scales
+Musical scales helper
