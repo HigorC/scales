@@ -33,7 +33,7 @@ const generateScale = (note, rule) => {
  * @param { String } note 
  * @returns { Array<String> }
  */
-const getMajorScale = (note) => {
+const getNaturalMajor = (note) => {
     return generateScale(note, 'T T S T T T S')
 }
 
@@ -42,8 +42,17 @@ const getMajorScale = (note) => {
  * @param { String } note 
  * @returns { Array<String> }
  */
-const getMinorScale = (note) => {
+const getNaturalMinor = (note) => {
     return generateScale(note, 'T S T T S T T')
 }
 
-module.exports = { getMajorScale, getMinorScale }
+/**
+ * Returns a minor scale from a passed note
+ * @param { String } note 
+ * @returns { Array<String> }
+ */
+const getPentatonicMajor = (note) => {
+    return generateScale(note, '')
+}
+
+module.exports = { getNaturalMajor, getNaturalMinor }

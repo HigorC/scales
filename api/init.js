@@ -9,8 +9,8 @@ app.use(express.json());
 app.get('/', (req, res) => {
     if (req.query.note) {
         res.send({
-            major: scales.getMajorScale(req.query.note),
-            minor: scales.getMinorScale(req.query.note)
+            major: scales.getNaturalMajor(req.query.note),
+            minor: scales.getNaturalMinor(req.query.note)
         })
     }
 })
