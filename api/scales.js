@@ -1,28 +1,28 @@
 const notes = require('./notes')
 
 /**
- * Convert a scale rule in a real scale
- * Ex input: 'C', 'T T S T T T S'
- * Ex output: ['C', 'D', 'E', 'F', 'G', 'A', 'B'] 
- * @param { String } note 
- * @param { String } rule 
+ * Convert a scale rule in a real scale.
+ * The param rule is an array with numbers. Each number represents a note in scale.
+ * Ex input: '0 2 4 5 7 9 11 0
+ * Ex output: ['C', 'D', 'E', 'F', 'G', 'A', 'B', 'C'] 
+ * @param { String } note
+ * @param { String } rule
  * @returns { Array<String> }
  */
-const generateScale = (note, rule) => {
+const generateScaleByNubers = (note, rule) => {
     const ruleSplited = rule.split(' ')
-    let indexActualNote = notes.indexOf(note.toUpperCase())
+
+    const indexActualNote = notes.indexOf(note.toUpperCase())
+
     const scale = []
 
-    scale.push(notes[indexActualNote])
+    ruleSplited.forEach(noteIndex => {
+        let realIndex = Number(noteIndex) + indexActualNote
 
-    ruleSplited.forEach(interval => {
-        indexActualNote += /T|t/.test(interval) ? 2 : 1
-
-        if (indexActualNote >= notes.length) {
-            indexActualNote = Math.abs(indexActualNote - notes.length)
+        if (realIndex >= notes.length) {
+            realIndex = Math.abs(realIndex - notes.length)
         }
-
-        scale.push(notes[indexActualNote])
+        scale.push(notes[realIndex])
     })
 
     return scale
@@ -34,7 +34,7 @@ const generateScale = (note, rule) => {
  * @returns { Array<String> }
  */
 const getNaturalMajor = (note) => {
-    return generateScale(note, 'T T S T T T S')
+    return generateScaleByNubers(note, '0 2 4 5 7 9 11 0')
 }
 
 /**
@@ -43,16 +43,30 @@ const getNaturalMajor = (note) => {
  * @returns { Array<String> }
  */
 const getNaturalMinor = (note) => {
-    return generateScale(note, 'T S T T S T T')
+    return generateScaleByNubers(note, '0 2 3 5 7 8 10 0')
 }
 
 /**
- * Returns a minor scale from a passed note
+ * Returns a major pentatonic scale from a passed note
  * @param { String } note 
  * @returns { Array<String> }
  */
 const getPentatonicMajor = (note) => {
-    return generateScale(note, '')
+    return generateScaleByNubers(note, '0 2 4 7 9')
 }
 
-module.exports = { getNaturalMajor, getNaturalMinor }
+/**
+ * Returns a minor pentatonic scale from a passed note
+ * @param { String } note 
+ * @returns { Array<String> }
+ */
+const getPentatonicMinor = (note) => {
+    return generateScaleByNubers(note, '0 3 5 7 10')
+}
+
+module.exports = {
+    getNaturalMajor,
+    getNaturalMinor,
+    getPentatonicMajor,
+    getPentatonicMinor
+}

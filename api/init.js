@@ -9,10 +9,17 @@ app.use(express.json());
 app.get('/', (req, res) => {
     if (req.query.note) {
         res.send({
-            major: scales.getNaturalMajor(req.query.note),
-            minor: scales.getNaturalMinor(req.query.note)
+            major: {
+                natural: scales.getNaturalMajor(req.query.note),
+                pentatonic: scales.getPentatonicMajor(req.query.note)
+            },
+            minor: {
+                natural: scales.getNaturalMinor(req.query.note),
+                pentatonic: scales.getPentatonicMinor(req.query.note)
+            }
         })
     }
+    res.send('0')
 })
 
 app.listen(port, () => {
