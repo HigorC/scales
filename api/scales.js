@@ -9,10 +9,10 @@ const notes = require('./notes')
  * @param { String } rule
  * @returns { Array<String> }
  */
-const generateScaleByNubers = (note, rule) => {
+const generateScale = (note, rule) => {
     const ruleSplited = rule.split(' ')
 
-    const indexActualNote = notes.indexOf(note.toUpperCase())
+    const indexActualNote = notes.indexOf(notes.find(scaleNote => scaleNote.note === note.toUpperCase()))
 
     const scale = []
 
@@ -22,9 +22,9 @@ const generateScaleByNubers = (note, rule) => {
         if (realIndex >= notes.length) {
             realIndex = Math.abs(realIndex - notes.length)
         }
-        scale.push(notes[realIndex])
+        scale.push(notes[realIndex].note)
     })
-
+ 
     return scale
 }
 
@@ -34,7 +34,7 @@ const generateScaleByNubers = (note, rule) => {
  * @returns { Array<String> }
  */
 const getNaturalMajor = (note) => {
-    return generateScaleByNubers(note, '0 2 4 5 7 9 11 0')
+    return generateScale(note, '0 2 4 5 7 9 11 0')
 }
 
 /**
@@ -43,7 +43,7 @@ const getNaturalMajor = (note) => {
  * @returns { Array<String> }
  */
 const getNaturalMinor = (note) => {
-    return generateScaleByNubers(note, '0 2 3 5 7 8 10 0')
+    return generateScale(note, '0 2 3 5 7 8 10 0')
 }
 
 /**
@@ -52,7 +52,7 @@ const getNaturalMinor = (note) => {
  * @returns { Array<String> }
  */
 const getPentatonicMajor = (note) => {
-    return generateScaleByNubers(note, '0 2 4 7 9')
+    return generateScale(note, '0 2 4 7 9')
 }
 
 /**
@@ -61,7 +61,7 @@ const getPentatonicMajor = (note) => {
  * @returns { Array<String> }
  */
 const getPentatonicMinor = (note) => {
-    return generateScaleByNubers(note, '0 3 5 7 10')
+    return generateScale(note, '0 3 5 7 10')
 }
 
 module.exports = {

@@ -1,4 +1,16 @@
-//              0    1     2    3     4    5    6     7    8     9   10    11
-const notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+const notes = [
+    { name: 'Tônica/Primeira', note: 'C' },
+    { name: 'Segunda menor', note: 'C#' },
+    { name: 'Segunda maior', note: 'D' },
+    { name: 'Terça menor', note: 'D#' },
+    { name: 'Terça maior', note: 'E' },
+    { name: 'Quarta justa', note: 'F' },
+    { name: 'Quarta aumentada', note: 'F#' },
+    { name: 'Quinta justa', note: 'G' },
+    { name: 'Sexta menor', note: 'G#' },
+    { name: 'Sexta', note: 'A' },
+    { name: 'Sétima menor', note: 'A#' },
+    { name: 'Sétima', note: 'B' }
+]
 
 module.exports = notes
