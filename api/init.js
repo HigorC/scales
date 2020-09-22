@@ -9,16 +9,12 @@ app.use(express.json());
 app.use(cors())
 
 app.get('/', (req, res) => {
-    if (req.query.note) {
+    if (req.query.key) {
         res.send({
-            major: {
-                natural: scales.getNaturalMajor(req.query.note),
-                pentatonic: scales.getPentatonicMajor(req.query.note)
-            },
-            minor: {
-                natural: scales.getNaturalMinor(req.query.note),
-                pentatonic: scales.getPentatonicMinor(req.query.note)
-            }
+            majorNatural: scales.getNaturalMajor(req.query.key),
+            majorPentatonic: scales.getPentatonicMajor(req.query.key),
+            minorNatural: scales.getNaturalMinor(req.query.key),
+            minorPentatonic: scales.getPentatonicMinor(req.query.key)
         })
     }
     res.send('0')

@@ -24,17 +24,20 @@ const generateScale = (note, rule) => {
         }
         scale.push(notes[realIndex].note)
     })
- 
+
     return scale
 }
 
 /**
  * Returns a major scale from a passed note
  * @param { String } note 
- * @returns { Array<String> }
+ * @returns { Object }
  */
 const getNaturalMajor = (note) => {
-    return generateScale(note, '0 2 4 5 7 9 11 0')
+    return {
+        name: 'Major Natural',
+        scale: generateScale(note, '0 2 4 5 7 9 11 0')
+    }
 }
 
 /**
@@ -43,7 +46,10 @@ const getNaturalMajor = (note) => {
  * @returns { Array<String> }
  */
 const getNaturalMinor = (note) => {
-    return generateScale(note, '0 2 3 5 7 8 10 0')
+    return {
+        name: 'Minor Natural',
+        scale: generateScale(note, '0 2 3 5 7 8 10 0')
+    }
 }
 
 /**
@@ -52,7 +58,10 @@ const getNaturalMinor = (note) => {
  * @returns { Array<String> }
  */
 const getPentatonicMajor = (note) => {
-    return generateScale(note, '0 2 4 7 9')
+    return {
+        name: 'Major Pentatonic',
+        scale: generateScale(note, '0 2 4 7 9')
+    }
 }
 
 /**
@@ -61,7 +70,11 @@ const getPentatonicMajor = (note) => {
  * @returns { Array<String> }
  */
 const getPentatonicMinor = (note) => {
-    return generateScale(note, '0 3 5 7 10')
+    return {
+        name: 'Minor Pentatonic',
+        scale: generateScale(note, '0 3 5 7 10')
+    }
+
 }
 
 module.exports = {
