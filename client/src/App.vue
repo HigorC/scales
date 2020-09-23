@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+<div id="app">
     <div class="header">
         I want to see the scales of&nbsp;
         <div class="select is-rounded">
@@ -27,10 +27,12 @@
         </div>
     </div>
 </div>
+<Footer />
 </template>
 
 <script>
 import Scale from "./components/Scale";
+import Footer from "./components/Footer";
 import api from "./utils/api";
 
 export default {
@@ -53,6 +55,7 @@ export default {
     },
     components: {
         Scale,
+        Footer,
     },
 };
 </script>
