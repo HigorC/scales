@@ -16,13 +16,23 @@ const generateScale = (note, rule) => {
 
     const scale = []
 
-    ruleSplited.forEach(noteIndex => {
+    const initialOctave = 4
+    let actualOctave = initialOctave
+
+    ruleSplited.forEach((noteIndex, forIndex) => {
         let realIndex = Number(noteIndex) + indexActualNote
 
         if (realIndex >= notes.length) {
             realIndex = Math.abs(realIndex - notes.length)
         }
-        scale.push(notes[realIndex].note)
+
+        if (realIndex < indexActualNote && initialOctave === actualOctave && actualOctave < initialOctave + 1) {
+            actualOctave++
+        } else if (realIndex === indexActualNote && forIndex !== 0 && actualOctave < initialOctave + 1) {
+            actualOctave++
+        }
+
+        scale.push(notes[realIndex].note + actualOctave)
     })
 
     return scale
