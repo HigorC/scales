@@ -48,7 +48,7 @@ table {
 }
 
 tr {
-    background: #ffffff;
+    background: #e6e6e6;
 }
 
 td {

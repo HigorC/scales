@@ -1,30 +1,44 @@
 <template>
-<span class="note-card unselectable" v-bind:style="{ background: getColor(note) }">{{note}}</span>
+<span @click="play(note)" class="note-card unselectable" v-bind:style="{ background: getColor(note) }">{{removeDigits(note)}}</span>
 </template>
 
 <script>
+import {
+    Synth
+} from "tone";
+
+const synth = new Synth().toDestination();
+
 export default {
     props: {
         note: String,
     },
+    created() {},
     methods: {
+        play: function (note) {
+            // const synth = new Synth().toDestination();
+            synth.triggerAttackRelease(`${note}`, "8n");
+        },
+        removeDigits: function (key) {
+            return key.replaceAll(/\d/g, '')
+        },
         getColor: function (key) {
             const colors = {
                 'c': "#9de24f",
-                'c#': "#70a337",
-                'd': '#ffbd55',
-                'd#': '#d6a353',
-                'e': '#5f9ec5',
-                'f': '#f86565',
-                'f#': '#b14444',
-                'g': '#d6a353',
-                'g#': '#dcc930',
-                'a': '#d88de4',
-                'a#': '#9d54a9',
-                'b': '#3e58bb'
-
+                "c#": "#70a337",
+                'd': "#ffbd55",
+                "d#": "#d6a353",
+                'e': "#5f9ec5",
+                'f': "#f86565",
+                "f#": "#b14444",
+                'g': "#d6a353",
+                "g#": "#dcc930",
+                'a': "#d88de4",
+                "a#": "#9d54a9",
+                'b': "#3e58bb",
             };
-            return colors[key.toLowerCase()];
+            const normalizedKey = this.removeDigits(key).toLowerCase()
+            return colors[normalizedKey];
         },
     },
 };
