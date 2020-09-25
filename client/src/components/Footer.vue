@@ -17,11 +17,14 @@ export default {};
 
 <style lang="scss" scoped>
 .app-footer {
-    bottom: 0;
     color: #ffffff;
     background-color: #000000;
-    width: 100%;
     text-align: right;
+
+    width: 100%;
+    height: 27px;
+    bottom: 0;
+    left: 0;
 
     p {
         font-size: 11px;
