@@ -68,5 +68,6 @@ export default {
     align-items: center;
     font-size: 15px;
     font-weight: bold;
+    margin-top: 30px;
 }
 </style>

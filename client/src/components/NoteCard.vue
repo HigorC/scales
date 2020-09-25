@@ -1,5 +1,5 @@
 <template>
-<span @click="play(note)" class="note-card unselectable" v-bind:style="{ background: getColor(note) }">{{removeDigits(note)}}</span>
+<span @click="play(note)" class="note-card unselectable pointer" v-bind:style="{ background: getColor(note) }">{{removeDigits(note)}}</span>
 </template>
 
 <script>
@@ -16,7 +16,6 @@ export default {
     created() {},
     methods: {
         play: function (note) {
-            // const synth = new Synth().toDestination();
             synth.triggerAttackRelease(`${note}`, "8n");
         },
         removeDigits: function (key) {
