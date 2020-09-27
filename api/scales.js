@@ -13,7 +13,7 @@ const notes = scaleUtils.notes || []
 const generateScale = (note, rule) => {
     const ruleSplited = rule.split(' ')
 
-    const indexActualNote = notes.indexOf(notes.find(note => note === note.toUpperCase()))
+    const indexActualNote = notes.indexOf(note.toUpperCase())
 
     const scale = []
 
