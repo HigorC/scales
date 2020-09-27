@@ -1,7 +1,7 @@
 <template>
 <div id="app">
     <div class="header">
-        I want to see the scales of&nbsp;
+        Ver escalas da nota &nbsp;
         <div class="select is-rounded">
             <select v-model="keySelected" @change="getScale()">
                 <option>C</option>
@@ -17,7 +17,7 @@
                 <option>A#</option>
                 <option>B</option>
             </select>
-        </div>&nbsp;key
+        </div>
     </div>
     <div class="columns is-centered">
         <div class="column is-8">

@@ -49,7 +49,7 @@ const generateScale = (note, rule) => {
  */
 const getNaturalMajor = (note) => {
     return {
-        name: 'Major Natural',
+        name: 'Maior Natural',
         scale: generateScale(note, '0 2 4 5 7 9 11 0')
     }
 }
@@ -61,7 +61,7 @@ const getNaturalMajor = (note) => {
  */
 const getNaturalMinor = (note) => {
     return {
-        name: 'Minor Natural',
+        name: 'Menor Natural',
         scale: generateScale(note, '0 2 3 5 7 8 10 0')
     }
 }
@@ -73,7 +73,7 @@ const getNaturalMinor = (note) => {
  */
 const getPentatonicMajor = (note) => {
     return {
-        name: 'Major Pentatonic',
+        name: 'Pentatônica maior',
         scale: generateScale(note, '0 2 4 7 9')
     }
 }
@@ -85,7 +85,7 @@ const getPentatonicMajor = (note) => {
  */
 const getPentatonicMinor = (note) => {
     return {
-        name: 'Minor Pentatonic',
+        name: 'Pentatônica menor',
         scale: generateScale(note, '0 3 5 7 10')
     }
 
