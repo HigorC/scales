@@ -12,7 +12,7 @@
             </span>
         </td>
         <td v-for="actualNote in scale" :key="actualNote">
-            <NoteCard :note="actualNote" />
+             <NoteCard :actualNote="actualNote" />
         </td>
     </tr>
 </table>
@@ -38,14 +38,11 @@ export default {
             const now = toneNow();
             let seconds = 0;
 
-            this.scale.forEach((note) => {
-                synth.triggerAttackRelease(note, "8n", now + seconds);
+            this.scale.forEach((noteScale) => {
+                synth.triggerAttackRelease(noteScale.note, "8n", now + seconds);
                 seconds += 0.5;
             });
         },
-    },
-    mounted: function () {
-        console.log(this.color);
     },
     components: {
         NoteCard,
