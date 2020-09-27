@@ -62,7 +62,7 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-    color: #ffffff;
+    color: #686868;
     display: flex;
     justify-content: center;
     align-items: center;

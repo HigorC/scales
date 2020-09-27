@@ -49,7 +49,7 @@ export default {
 }
 
 .note-card {
-    box-shadow: 0px 0px 30px black;
+    box-shadow: 0px 0px 8px #686868;
     padding: 19px;
     color: #ffffff;
     font-weight: bold;

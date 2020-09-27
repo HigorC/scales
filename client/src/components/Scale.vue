@@ -59,7 +59,7 @@ export default {
     border-radius: 50%;
     padding: 20px;
     background: #414141;
-    box-shadow: 0px 0px 30px black;
+    box-shadow: 0px 0px 5px #c6c6c6;
     color: #4da950;
     transition: all 0.1s ease;
 
@@ -89,7 +89,7 @@ table {
 }
 
 tr {
-    background: #e6e6e6;
+    background: #a6a6a6;
 }
 
 td {
