@@ -1,4 +1,5 @@
-const notes = require('./notes')
+const scaleUtils = require('./scaleUtils')
+const notes = scaleUtils.notes || []
 
 /**
  * Convert a scale rule in a real scale.
@@ -12,11 +13,11 @@ const notes = require('./notes')
 const generateScale = (note, rule) => {
     const ruleSplited = rule.split(' ')
 
-    const indexActualNote = notes.indexOf(notes.find(scaleNote => scaleNote.note === note.toUpperCase()))
+    const indexActualNote = notes.indexOf(notes.find(note => note === note.toUpperCase()))
 
     const scale = []
 
-    const initialOctave = 4
+    const initialOctave = 3
     let actualOctave = initialOctave
 
     ruleSplited.forEach((noteIndex, forIndex) => {
@@ -32,7 +33,10 @@ const generateScale = (note, rule) => {
             actualOctave++
         }
 
-        scale.push(notes[realIndex].note + actualOctave)
+        scale.push({ 
+            note: notes[realIndex] + actualOctave,
+            degree: scaleUtils.getDegree(notes[indexActualNote], notes[realIndex])
+        })
     })
 
     return scale
