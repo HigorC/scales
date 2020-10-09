@@ -6,7 +6,7 @@
       }}
     </caption>
     <tr>
-      <td>
+      <td v-if="!isMobile()">
         <span
           class="play-all pointer"
           data-tooltip="Tocar esta escala"
@@ -28,6 +28,7 @@
 import NoteCard from "./NoteCard";
 import { now as toneNow } from "tone";
 import { sampler } from "../utils/toneHelper";
+import navigator from "../utils/navigator";
 
 export default {
   data() {
@@ -41,6 +42,9 @@ export default {
     color: String,
   },
   methods: {
+    isMobile: function () {
+      return navigator.isMobile();
+    },
     playAll: function (event) {
       const now = toneNow();
       let seconds = 0;
@@ -95,6 +99,10 @@ table {
 tr {
   background: #a6a6a6;
   border-bottom: 5px solid;
+
+  @media screen and (max-width: 600px) {
+    height: 45px;
+  }
 }
 
 td {

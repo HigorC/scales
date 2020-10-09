@@ -1,11 +1,11 @@
 <template>
   <div id="app-body">
-    <div class="columns inputs">
-      <div class="column is-3 is-offset-1 app-name">
+    <div class="columns is-mobile inputs">
+      <div class="column is-3-desktop is-8-mobile is-offset-1 app-name">
         <h1>Gerador de Escalas</h1>
       </div>
-      <div class="column is-3">
-        Ver escalas da nota &nbsp;
+      <div class="column is-3-desktop is-3-mobile">
+        <span v-if="!isMobile()"> Ver escalas da nota &nbsp; </span>
         <div class="select is-rounded">
           <select v-model="keySelected" @change="getScale()">
             <option>C</option>
@@ -23,7 +23,7 @@
           </select>
         </div>
       </div>
-      <div class="column is-5">
+      <div v-if="!isMobile()" class="column is-6-desktop">
         <div class="field">
           <div class="control">
             <input
@@ -36,6 +36,24 @@
         </div>
       </div>
     </div>
+
+    <span v-if="isMobile()">
+      <div class="columns is-mobile is-centered">
+        <div class="column is-10">
+          <div class="field">
+            <div class="control">
+              <input
+                class="input"
+                type="text"
+                placeholder="Procure uma escala aqui"
+                v-model="querySearch"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </span>
+
     <div class="columns is-centered">
       <div class="column is-8">
         <div v-for="scale in scales" :key="scale.scale">
@@ -56,6 +74,7 @@
 import Scale from "./components/Scale";
 import Footer from "./components/Footer";
 import api from "./utils/api";
+import navigator from "./utils/navigator";
 
 export default {
   name: "App",
@@ -70,11 +89,24 @@ export default {
     setTimeout(this.getScale, 300);
   },
   methods: {
+    isMobile: function() {
+        return navigator.isMobile()
+    },
     search: function (scaleName) {
-        const scaleNameNormalized = scaleName.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")
-        const querySerachNormalized = this.querySearch.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+      const scaleNameNormalized = scaleName
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+      const querySerachNormalized = this.querySearch
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
 
-        return !querySerachNormalized || (querySerachNormalized && scaleNameNormalized.includes(querySerachNormalized));
+      return (
+        !querySerachNormalized ||
+        (querySerachNormalized &&
+          scaleNameNormalized.includes(querySerachNormalized))
+      );
     },
     getScale: function () {
       api.getScales(this.keySelected).then((data) => {
@@ -105,6 +137,7 @@ export default {
   div {
     display: flex;
     align-items: center;
+    // width: 100%;
   }
 }
 </style>

@@ -59,8 +59,14 @@ export default {
 
   transition: all 0.1s ease;
 
-  &:hover {
-    padding: 25px;
+  @media screen and (max-width: 600px) {
+    padding: 10px 12px;
+  }
+
+  @media screen and (min-width: 600px) {
+    &:hover {
+      padding: 25px;
+    }
   }
 }
 </style>
