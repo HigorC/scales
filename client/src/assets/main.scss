@@ -11,19 +11,17 @@ html {
     font-family: 'Roboto', sans-serif;
 }
 
-html, body, #app {
-    height: 101%;
-    margin: 0;
-}
-
-#app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+html, body{
+    height: 130vh;
+  }
+  
+  #app, #app-body {
     text-align: center;
-    color: #2c3e50;
-}
-
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
 .unselectable {
     -webkit-user-select: none; /* Safari */        
 -moz-user-select: none; /* Firefox */
