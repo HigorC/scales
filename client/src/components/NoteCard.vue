@@ -9,9 +9,7 @@
 </template>
 
 <script>
-import { Synth } from "tone";
-
-const synth = new Synth().toDestination();
+import { sampler } from "../utils/toneHelper";
 
 export default {
   props: {
@@ -20,7 +18,7 @@ export default {
   created() {},
   methods: {
     play: function (note) {
-      synth.triggerAttackRelease(`${note}`, "8n");
+      sampler.triggerAttackRelease(`${note}`, "8n");
     },
     removeDigits: function (key) {
       return key.replaceAll(/\d/g, "");
