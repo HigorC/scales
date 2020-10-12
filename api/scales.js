@@ -1,4 +1,5 @@
 const scaleUtils = require('./scaleUtils')
+const scalesRules = require('./scaleRules.json')
 const notes = scaleUtils.notes || []
 
 /**
@@ -33,7 +34,7 @@ const generateScale = (note, rule) => {
             actualOctave++
         }
 
-        scale.push({ 
+        scale.push({
             note: notes[realIndex] + actualOctave,
             degree: scaleUtils.getDegree(notes[indexActualNote], notes[realIndex])
         })
@@ -43,57 +44,21 @@ const generateScale = (note, rule) => {
 }
 
 /**
- * Returns a major scale from a passed note
+ * Returns all registred scales
  * @param { String } note 
- * @returns { Object }
+ * @returns { Array<Object> }
  */
-const getNaturalMajor = (note) => {
-    return {
-        name: 'Maior Natural',
-        scale: generateScale(note, '0 2 4 5 7 9 11 0')
-    }
-}
-
-/**
- * Returns a minor scale from a passed note
- * @param { String } note 
- * @returns { Array<String> }
- */
-const getNaturalMinor = (note) => {
-    return {
-        name: 'Menor Natural',
-        scale: generateScale(note, '0 2 3 5 7 8 10 0')
-    }
-}
-
-/**
- * Returns a major pentatonic scale from a passed note
- * @param { String } note 
- * @returns { Array<String> }
- */
-const getPentatonicMajor = (note) => {
-    return {
-        name: 'Pentatônica maior',
-        scale: generateScale(note, '0 2 4 7 9')
-    }
-}
-
-/**
- * Returns a minor pentatonic scale from a passed note
- * @param { String } note 
- * @returns { Array<String> }
- */
-const getPentatonicMinor = (note) => {
-    return {
-        name: 'Pentatônica menor',
-        scale: generateScale(note, '0 3 5 7 10')
-    }
-
+const getAllScales = (note) => {
+    const allScales = []
+    scalesRules.forEach(rule => {
+        allScales.push({
+            name: rule.name,
+            scale: generateScale(note, rule.scale)
+        })
+    })
+    return allScales
 }
 
 module.exports = {
-    getNaturalMajor,
-    getNaturalMinor,
-    getPentatonicMajor,
-    getPentatonicMinor
+    getAllScales
 }

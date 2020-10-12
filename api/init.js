@@ -10,14 +10,10 @@ app.use(cors())
 
 app.get('/', (req, res) => {
     if (req.query.key) {
-        res.send({
-            majorNatural: scales.getNaturalMajor(req.query.key),
-            majorPentatonic: scales.getPentatonicMajor(req.query.key),
-            minorNatural: scales.getNaturalMinor(req.query.key),
-            minorPentatonic: scales.getPentatonicMinor(req.query.key)
-        })
+        res.send(scales.getAllScales(req.query.key))
     }
-    res.send('0')
+    res.status(400)
+    res.send('Key param is needed. Try to add in your url something like ?key=a')
 })
 
 app.listen(port, () => {
