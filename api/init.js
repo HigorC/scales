@@ -11,9 +11,10 @@ app.use(cors())
 app.get('/', (req, res) => {
     if (req.query.key) {
         res.send(scales.getAllScales(req.query.key))
+    } else {
+        res.status(400)
+        res.send('Key param is needed. Try to add in your url something like ?key=a')
     }
-    res.status(400)
-    res.send('Key param is needed. Try to add in your url something like ?key=a')
 })
 
 app.listen(port, () => {
