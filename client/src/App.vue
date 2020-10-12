@@ -54,8 +54,8 @@
       </div>
     </span>
 
-    <div class="columns is-centered">
-      <div class="column is-8">
+    <div class="columns is-mobile is-centered">
+      <div class="column is-8-desktop is-12-mobile scales">
         <div v-for="scale in scales" :key="scale.scale">
           <Scale
             v-show="search(scale.name)"
@@ -89,8 +89,8 @@ export default {
     setTimeout(this.getScale, 300);
   },
   methods: {
-    isMobile: function() {
-        return navigator.isMobile()
+    isMobile: function () {
+      return navigator.isMobile();
     },
     search: function (scaleName) {
       const scaleNameNormalized = scaleName
@@ -137,7 +137,11 @@ export default {
   div {
     display: flex;
     align-items: center;
-    // width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .scales {
+    padding-right: 0;
   }
 }
 </style>

@@ -1,6 +1,13 @@
 <template>
   <table>
     <caption class="scale-name unselectable">
+      <span
+        v-if="isMobile()"
+        class="play-all pointer"
+        @click="playAll($event)"
+      >
+        <i class="fas fa-play-circle"></i>
+      </span>
       {{
         scaleName
       }}
@@ -71,8 +78,17 @@ export default {
   color: #4da950;
   transition: all 0.1s ease;
 
-  &:hover {
-    padding: 25px;
+  @media screen and (max-width: 600px) {
+    font-size: 24px;
+    background: none;
+    color: #646464;
+    padding: 0;
+  }
+
+  @media screen and (min-width: 600px) {
+    &:hover {
+      padding: 25px;
+    }
   }
 }
 

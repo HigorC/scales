@@ -2,7 +2,7 @@
   <span
     @click="play(actualNote.note)"
     class="note-card unselectable pointer"
-    :data-tooltip="actualNote.degree.name"
+    :data-tooltip="isMobile() ? null : actualNote.degree.name"
     v-bind:style="{ background: getColor(actualNote.note) }"
     >{{ removeDigits(actualNote.note) }}</span
   >
@@ -10,6 +10,7 @@
 
 <script>
 import { sampler } from "../utils/toneHelper";
+import navigator from "../utils/navigator";
 
 export default {
   props: {
@@ -17,6 +18,9 @@ export default {
   },
   created() {},
   methods: {
+    isMobile: function () {
+      return navigator.isMobile();
+    },
     play: function (note) {
       sampler.triggerAttackRelease(`${note}`, "8n");
     },

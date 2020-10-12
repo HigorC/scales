@@ -11,9 +11,16 @@ html {
     font-family: 'Roboto', sans-serif;
 }
 
-html, body{
+@media screen and (min-width: 600px) {
+  html, body{
     height: 130vh;
   }
+}
+@media screen and (max-width: 600px) {
+  html, body{
+    height: 110vh;
+  }
+}
   
   #app, #app-body {
     text-align: center;
