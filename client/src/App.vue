@@ -4,26 +4,26 @@
       <div class="column is-3-desktop is-8-mobile is-offset-1 app-name">
         <h1>Escalator</h1>
       </div>
-      <div class="column is-3-desktop is-3-mobile">
+      <div class="column is-4-desktop is-3-mobile">
         <span v-if="!isMobile()"> Ver escalas da nota &nbsp; </span>
         <div class="select is-rounded">
           <select v-model="keySelected" @change="getScale()">
             <option>C</option>
-            <option>C#</option>
+            <option value="C#">C#/Db</option>
             <option>D</option>
-            <option>D#</option>
+            <option value="D#">D#/Eb</option>
             <option>E</option>
             <option>F</option>
-            <option>F#</option>
+            <option value="F#">F#/Gb</option>
             <option>G</option>
-            <option>G#</option>
+            <option value="G#">G#/Ab</option>
             <option>A</option>
-            <option>A#</option>
+            <option value="A#">A#/Bb</option>
             <option>B</option>
           </select>
         </div>
       </div>
-      <div v-if="!isMobile()" class="column is-6-desktop">
+      <div v-if="!isMobile()" class="column is-5-desktop">
         <div class="field">
           <div class="control">
             <input
