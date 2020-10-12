@@ -1,0 +1,25 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Scales API",
+  "main": "init.js",
+  "scripts": {
+    "start": "nodemon init.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "git init;git add -A;git commit -m 'deploy';git push -f git@github.com:higorc/scales.git master:api"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HigorC/scales.git"
+  },
+  "author": "Higor Chaves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HigorC/scales/issues"
+  },
+  "homepage": "https://github.com/HigorC/scales#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4"
+  }
+}
