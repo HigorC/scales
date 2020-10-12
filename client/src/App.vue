@@ -37,25 +37,8 @@
       </div>
     </div>
 
-    <span v-if="isMobile()">
-      <div class="columns is-mobile is-centered">
-        <div class="column is-10">
-          <div class="field">
-            <div class="control">
-              <input
-                class="input"
-                type="text"
-                placeholder="Procure uma escala aqui"
-                v-model="querySearch"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </span>
-
     <div class="columns is-mobile is-centered">
-      <div class="column is-8-desktop is-12-mobile scales">
+      <div class="column is-8-desktop is-11-mobile scales">
         <div v-for="scale in scales" :key="scale.scale">
           <div class="scale-container">
             <Scale
