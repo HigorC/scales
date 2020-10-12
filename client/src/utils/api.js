@@ -1,4 +1,5 @@
-const baseUrl = 'http://localhost:5001'
+// const baseUrl = 'http://localhost:5001'
+const baseUrl = 'https://escalator-api.herokuapp.com/'
 
 const getScales = (key) => {
     return new Promise((resolve, reject) => {

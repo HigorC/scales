@@ -1,5 +1,5 @@
 <template>
-  <div id="app-body">
+  <div id="app-body"  :class="{ 'low-opacity': !requestDone }">
     <div class="columns is-mobile inputs">
       <div class="column is-3-desktop is-8-mobile is-offset-1 app-name">
         <h1>Escalator</h1>
@@ -69,6 +69,7 @@
       </div>
     </div>
   </div>
+  <div v-show="!requestDone" class="spinner"></div>
   <Footer />
 </template>
 
@@ -85,6 +86,7 @@ export default {
       keySelected: "C",
       querySearch: "",
       scales: {},
+      requestDone: true,
     };
   },
   mounted() {
@@ -111,7 +113,9 @@ export default {
       );
     },
     getScale: function () {
+      this.requestDone = false;
       api.getScales(this.keySelected).then((data) => {
+        this.requestDone = true;
         Object.assign(this.scales, data);
       });
     },
@@ -150,5 +154,30 @@ export default {
 hr {
   margin-top: 0;
   background-color: #0000001c;
+}
+
+.spinner {
+  border: 8px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #22a6b3;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.low-opacity {
+  opacity: 0.5;
+}
+#app-body {
+  transition: all 0.1s ease;
 }
 </style>
