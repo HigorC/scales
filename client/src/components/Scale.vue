@@ -2,7 +2,7 @@
   <table>
     <caption class="scale-name unselectable">
       <span
-        v-if="isMobile()"
+        :data-tooltip="isMobile() ? null : 'Tocar escala'"
         class="play-all pointer"
         @click="playAll($event)"
       >
@@ -13,18 +13,8 @@
       }}
     </caption>
     <tr>
-      <td v-if="!isMobile()">
-        <span
-          class="play-all pointer"
-          data-tooltip="Tocar esta escala"
-          @click="playAll($event)"
-        >
-          <i class="fas fa-play-circle"></i>
-        </span>
-      </td>
       <td v-for="actualNote in scale" :key="actualNote">
         <NoteCard :actualNote="actualNote" :noteBeingPlayed="noteBeingPlayed">
-          <span v-show="actualNote == noteBeingPlayed"> testes 123 </span>
         </NoteCard>
       </td>
     </tr>
@@ -77,23 +67,20 @@ export default {
   background: #414141;
   color: #4da950;
   transition: all 0.1s ease;
-
-  @media screen and (max-width: 600px) {
-    font-size: 24px;
-    background: none;
-    color: #646464;
-    padding: 0;
-  }
+  font-size: 24px;
+  background: none;
+  color: #646464;
+  padding: 0;
 
   @media screen and (min-width: 600px) {
     &:hover {
-      padding: 25px;
+      color: #4da950;
     }
   }
 }
 
 table {
-  margin-bottom: 30px;
+  margin-bottom: 60px;
 }
 
 .scale-name {
@@ -102,8 +89,15 @@ table {
   padding-bottom: 4px;
   font-weight: bold;
   font-size: 25px;
-  text-align: right;
   color: #686868;
+
+  @media screen and (max-width: 600px) {
+    text-align: center;
+  }
+  @media screen and (min-width: 600px) {
+    text-align: left;
+    margin-left: 20px;
+  }
 }
 
 .column {
@@ -114,7 +108,7 @@ table {
 
 tr {
   background: #a6a6a6;
-  border-bottom: 5px solid;
+  box-shadow: 0px 0px 5px #b1b1b1;
 
   @media screen and (max-width: 600px) {
     height: 45px;

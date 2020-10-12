@@ -2,7 +2,7 @@
   <div id="app-body">
     <div class="columns is-mobile inputs">
       <div class="column is-3-desktop is-8-mobile is-offset-1 app-name">
-        <h1>Gerador de Escalas</h1>
+        <h1>Escalator</h1>
       </div>
       <div class="column is-3-desktop is-3-mobile">
         <span v-if="!isMobile()"> Ver escalas da nota &nbsp; </span>
@@ -57,12 +57,14 @@
     <div class="columns is-mobile is-centered">
       <div class="column is-8-desktop is-12-mobile scales">
         <div v-for="scale in scales" :key="scale.scale">
-          <Scale
-            v-show="search(scale.name)"
-            :scale="scale.scale"
-            :scaleName="scale.name"
-            :color="scale.color"
-          />
+          <div class="scale-container">
+            <Scale
+              v-show="search(scale.name)"
+              :scale="scale.scale"
+              :scaleName="scale.name"
+              :color="scale.color"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -143,5 +145,10 @@ export default {
   .scales {
     padding-right: 0;
   }
+}
+
+hr {
+  margin-top: 0;
+  background-color: #0000001c;
 }
 </style>
