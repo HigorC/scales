@@ -51,6 +51,13 @@ export default {
         sampler.triggerAttackRelease(noteScale.note, "8n", now + seconds);
         seconds += 0.4;
       });
+
+      // Change button color
+      const currentTarget = event.currentTarget;
+      currentTarget.style.color = "#4da950";
+      setTimeout(function () {
+        currentTarget.style.color = "#646464";
+      }, seconds * 1000);
     },
   },
   components: {
