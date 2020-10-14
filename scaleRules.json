@@ -8,11 +8,47 @@
         "scale": "0 2 3 5 7 8 10 0"
     },
     {
-        "name": "Pentatônica maior",
+        "name": "Menor Harmônica",
+        "scale": "0 2 3 5 7 8 11 0"
+    },
+    {
+        "name": "Menor Melódica",
+        "scale": "0 2 3 5 7 9 11 0"
+    },
+    {
+        "name": "Pentatônica Maior",
         "scale": "0 2 4 7 9"
     },
     {
-        "name": "Pentatônica menor",
+        "name": "Pentatônica Menor",
         "scale": "0 3 5 7 10"
+    },
+    {
+        "name": "Modo Jônico",
+        "scale": "0 2 4 5 7 9 11 0"
+    },
+    {
+        "name": "Modo Dórico",
+        "scale": "2 4 5 7 9 11 12 14"
+    },
+    {
+        "name": "Modo Frígio",
+        "scale": "4 5 7 9 11 12 14 16"
+    },
+    {
+        "name": "Modo Lídio",
+        "scale": "5 7 9 11 12 14 16 17"
+    },
+    {
+        "name": "Modo Mixolídio",
+        "scale": "7 9 11 12 14 16 17 19"
+    },
+    {
+        "name": "Modo Eólio",
+        "scale": "9 11 12 14 16 17 19 21"
+    },
+    {
+        "name": "Modo Lócrio",
+        "scale": "11 12 14 16 17 19 21 23"
     }
 ]

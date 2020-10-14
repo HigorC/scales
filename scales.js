@@ -24,7 +24,7 @@ const generateScale = (note, rule) => {
     ruleSplited.forEach((noteIndex, forIndex) => {
         let realIndex = Number(noteIndex) + indexActualNote
 
-        if (realIndex >= notes.length) {
+        while (realIndex >= notes.length) {
             realIndex = Math.abs(realIndex - notes.length)
         }
 
