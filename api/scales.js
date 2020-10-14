@@ -1,9 +1,5 @@
 const scaleUtils = require('./scaleUtils')
 const scalesRules = require('./scaleRules.json')
-// const scalesRules = [{
-//     "name": "Modo Lócrio",
-//     "scale": "11 12 14 16 17 19 21 23"
-// }] 
 const notes = scaleUtils.notes || []
 
 /**
