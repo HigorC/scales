@@ -25,7 +25,7 @@ export default {
       sampler.triggerAttackRelease(`${note}`, "8n");
     },
     removeDigits: function (key) {
-      return key.replaceAll(/\d/g, "");
+      return key && key.replaceAll(/\d/g, "");
     },
     getColor: function (key) {
       const colors = {
@@ -42,7 +42,7 @@ export default {
         "a#": "#9d54a9",
         b: "#3e58bb",
       };
-      const normalizedKey = this.removeDigits(key).toLowerCase();
+      const normalizedKey = key && this.removeDigits(key).toLowerCase();
       return colors[normalizedKey];
     },
   },
