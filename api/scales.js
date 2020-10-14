@@ -1,5 +1,9 @@
 const scaleUtils = require('./scaleUtils')
 const scalesRules = require('./scaleRules.json')
+// const scalesRules = [{
+//     "name": "Modo Lócrio",
+//     "scale": "11 12 14 16 17 19 21 23"
+// }] 
 const notes = scaleUtils.notes || []
 
 /**
@@ -24,7 +28,7 @@ const generateScale = (note, rule) => {
     ruleSplited.forEach((noteIndex, forIndex) => {
         let realIndex = Number(noteIndex) + indexActualNote
 
-        if (realIndex >= notes.length) {
+        while (realIndex >= notes.length) {
             realIndex = Math.abs(realIndex - notes.length)
         }
 
