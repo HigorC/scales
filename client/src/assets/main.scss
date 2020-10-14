@@ -7,33 +7,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 html {
-    background: #efefef !important;
-    font-family: 'Roboto', sans-serif;
+  background: #efefef !important;
+  font-family: 'Roboto', sans-serif;
 }
 
-@media screen and (min-width: 600px) {
-  html, body{
-    height: 130vh;
-  }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
-@media screen and (max-width: 600px) {
-  html, body{
-    height: 110vh;
-  }
+#app{
+  min-height: 100%;
+  position: relative;
 }
-  
-  #app, #app-body {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
+#app-body{
+  /** Altura do rodapé tem que ser igual a isso aqui e vice-versa **/
+  padding-bottom: 27px;
+}
+
+#app, #app-body {
+  text-align: center;
+}
   
 .unselectable {
-    -webkit-user-select: none; /* Safari */        
--moz-user-select: none; /* Firefox */
--ms-user-select: none; /* IE10+/Edge */
-user-select: none; /* Standard */
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 }
 
 .pointer {
