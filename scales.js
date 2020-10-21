@@ -1,6 +1,6 @@
 const scaleUtils = require('./scaleUtils')
 const scalesRules = require('./scaleRules.json')
-const notes = scaleUtils.notes || []
+const notes = scaleUtils.getNotesWithOctaves() || []
 
 /**
  * Convert a scale rule in a real scale.
@@ -14,28 +14,14 @@ const notes = scaleUtils.notes || []
 const generateScale = (note, rule) => {
     const ruleSplited = rule.split(' ')
 
-    const indexActualNote = notes.indexOf(note.toUpperCase())
+    const indexActualNote = notes.findIndex(noteInteraction => noteInteraction.includes(note.toUpperCase()))
 
     const scale = []
 
-    const initialOctave = 3
-    let actualOctave = initialOctave
-
-    ruleSplited.forEach((noteIndex, forIndex) => {
+    ruleSplited.forEach(noteIndex => {
         let realIndex = Number(noteIndex) + indexActualNote
-
-        while (realIndex >= notes.length) {
-            realIndex = Math.abs(realIndex - notes.length)
-        }
-
-        if (realIndex < indexActualNote && initialOctave === actualOctave && actualOctave < initialOctave + 1) {
-            actualOctave++
-        } else if (realIndex === indexActualNote && forIndex !== 0 && actualOctave < initialOctave + 1) {
-            actualOctave++
-        }
-
         scale.push({
-            note: notes[realIndex] + actualOctave,
+            note: notes[realIndex],
             degree: scaleUtils.getDegree(notes[indexActualNote], notes[realIndex])
         })
     })

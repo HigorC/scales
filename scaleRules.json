@@ -1,19 +1,19 @@
 [
     {
         "name": "Maior Natural",
-        "scale": "0 2 4 5 7 9 11 0"
+        "scale": "0 2 4 5 7 9 11 12"
     },
     {
         "name": "Menor Natural",
-        "scale": "0 2 3 5 7 8 10 0"
+        "scale": "0 2 3 5 7 8 10 12"
     },
     {
         "name": "Menor Harmônica",
-        "scale": "0 2 3 5 7 8 11 0"
+        "scale": "0 2 3 5 7 8 11 12"
     },
     {
         "name": "Menor Melódica",
-        "scale": "0 2 3 5 7 9 11 0"
+        "scale": "0 2 3 5 7 9 11 12"
     },
     {
         "name": "Pentatônica Maior",
@@ -25,7 +25,7 @@
     },
     {
         "name": "Modo Jônico",
-        "scale": "0 2 4 5 7 9 11 0"
+        "scale": "0 2 4 5 7 9 11 12"
     },
     {
         "name": "Modo Dórico",

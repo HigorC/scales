@@ -32,4 +32,18 @@ const getDegree = (referenceKey, searchedKey) => {
     return degrees[Math.abs(indexsearchedKey - indexReferenceKey)]
 }
 
-module.exports = { notes, getDegree }
+/**
+ * Mount and return a array with notes and respective octave
+ * @param { Number } initialOctave
+ * @param { Number } octavesQuantity
+ * @returns { String[] }
+ */
+const getNotesWithOctaves = (initialOctave = 3, octavesQuantity = 3) => {
+    let allNotes = []
+    for (let actualOctave = initialOctave; actualOctave < initialOctave + octavesQuantity; actualOctave++) {
+        allNotes = allNotes.concat(notes.map(note => note + actualOctave))
+    }
+    return allNotes
+}
+
+module.exports = { getDegree, getNotesWithOctaves }
