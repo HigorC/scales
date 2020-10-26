@@ -1,6 +1,6 @@
 const scaleUtils = require('./scaleUtils')
 const scalesRules = require('./scaleRules.json')
-const notes = scaleUtils.getNotesWithOctaves() || []
+const notes = scaleUtils.getNotesWithOctaves()
 
 /**
  * Convert a scale rule in a real scale.
@@ -34,9 +34,9 @@ const generateScale = (note, rule) => {
  * @param { String } note 
  * @returns { Array<Object> }
  */
-const getAllScales = (note) => {
+const getAllScales = (note, rules = scalesRules) => {
     const allScales = []
-    scalesRules.forEach(rule => {
+    rules.forEach(rule => {
         allScales.push({
             name: rule.name,
             scale: generateScale(note, rule.scale)
