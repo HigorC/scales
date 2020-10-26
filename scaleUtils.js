@@ -16,14 +16,23 @@ const degrees = [
 ]
 
 /**
+ * Remove all numbers from string
+ * @param { String } note
+ * @returns { String }
+ */
+const removeOctave = (note) => {
+    return note.replace(/\d/g, '')
+}
+
+/**
  * 
  * @param { String } referenceKey key to reference
  * @param { String } searchedKey key to calculate the degree
  * @returns { Object} Degree object, the diference between referece and searched key
  */
 const getDegree = (referenceKey, searchedKey) => {
-    const indexReferenceKey = notes.indexOf(notes.find(note => note === referenceKey))
-    let indexsearchedKey = notes.indexOf(notes.find(note => note === searchedKey))
+    const indexReferenceKey = notes.indexOf(notes.find(note => note === removeOctave(referenceKey)))
+    let indexsearchedKey = notes.indexOf(notes.find(note => note === removeOctave(searchedKey)))
 
     if (indexsearchedKey < indexReferenceKey) {
         indexsearchedKey += notes.length
