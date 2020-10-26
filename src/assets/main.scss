@@ -1,0 +1,41 @@
+// Customizations Here (Optional)
+
+// Bulma Import
+@import '~bulma';
+@import '~bulma-tooltip';
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+html {
+  background: #efefef !important;
+  font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+#app{
+  min-height: 100%;
+  position: relative;
+}
+#app-body{
+  /** Altura do rodapé tem que ser igual a isso aqui e vice-versa **/
+  padding-bottom: 27px;
+}
+
+#app, #app-body {
+  text-align: center;
+}
+  
+.unselectable {
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+.pointer {
+    cursor: pointer;
+}
