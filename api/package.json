@@ -4,7 +4,7 @@
   "description": "Scales API",
   "main": "init.js",
   "scripts": {
-    "start": "nodemon init.js",
+    "start": "nodemon ./src/init.js",
     "test": "jest --collect-coverage",
     "deploy": "git init;git add -A;git commit -m 'deploy';git push -f git@github.com:higorc/scales.git master:api"
   },

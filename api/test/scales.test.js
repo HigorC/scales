@@ -1,4 +1,4 @@
-const scales = require('../scales');
+const scales = require('../src/scales');
 const scalesRules = require('../scaleRules.json')
 
 describe('getAllScales function', () => {

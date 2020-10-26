@@ -1,4 +1,4 @@
-const scalesUtils = require('../scaleUtils')
+const scalesUtils = require('../src/utils')
 
 describe('getNotesWithOctaves function', () => {
     test('Should mount a default array of notes when no parameter is passed', () => {

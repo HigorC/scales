@@ -1,5 +1,5 @@
-const scaleUtils = require('./scaleUtils')
-const scalesRules = require('./scaleRules.json')
+const scaleUtils = require('./utils')
+const scalesRules = require('./utils/rules.json')
 const notes = scaleUtils.getNotesWithOctaves()
 
 /**
